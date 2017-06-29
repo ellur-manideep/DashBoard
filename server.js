@@ -3,7 +3,7 @@ var mongojs = require('mongojs');
 //var MongoClient = require('mongodb').MongoClient;
 //var ObjectId = require('mongodb').ObjectID;
 var http = require('http');
-var db = mongojs('s-bng-opseng-01.juniper.net:27017/manideep', ['test', 'testevents']);
+var db = mongojs('DATABASE_NAME', ['test', 'testevents']);
 
 var app = express();
 
@@ -11,9 +11,7 @@ app.use(express.static(__dirname + "/public"));
 
 
 
-url = "http://s-bng-opseng-01.juniper.net:4567/clients";
-//MongoClient.connect("mongodb://s-bng-opseng-01.juniper.net:27017/manideep", function(err, db){
-//   var collection = db.collection("test2");
+url = "API CALL URL";
 var request = setInterval(function(){
   http.get(url, function (response) {
     var buffer = "", data;
@@ -49,7 +47,7 @@ app.get('/clients', function(req, res){
    });
  });
 
- url2 = "http://s-bng-opseng-01.juniper.net:4567/events";
+ url2 = "API CALL";
  var request2 = setInterval(function(){
    http.get(url2, function (response) {
      var buffer = "", data;
